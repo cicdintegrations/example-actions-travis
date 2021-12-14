@@ -12,11 +12,13 @@ script:
   - docker-compose config
   - printf "Start Nexploit Scan 🏁"
   - >
+   PID_REPEATER=$(nexploit-cli repeater --id $REPEATER --token $NEXPLOIT_TOKEN)
+   -echo $PID_REPEATER
    SCAN_ID=$(nexploit-cli scan:run 
    --token $NEXPLOIT_TOKEN
    --repeater $REPEATER
    --name "Test Travis Scan"
-   --crawler http://juiceshop.local:3000
+   --crawler http://brokencrystals.com
    --smart)
   - echo $SCAN_ID
   - printf "Scan was started with ID https://nexploit.app/scans/$SCAN_ID\n"
