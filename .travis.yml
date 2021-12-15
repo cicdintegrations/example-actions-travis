@@ -8,8 +8,8 @@ before_script:
 script:
  - printf "NEURALEGION_TOKEN=$NEURALEGION_TOKEN\nREPEATER=$REPEATER\n" > .env
  - cat .env
- - sudo docker-compose --env-file=.env up -d
- - sudo docker-compose config
+ - docker-compose --env-file=.env up -d
+ - docker-compose config
  - printf "Start Nexploit Scan 🏁"
  - >
   SCAN_ID=$(nexploit-cli scan:run
